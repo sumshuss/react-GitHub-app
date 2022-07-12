@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { Home } from './pages';
+import React from 'react';
 
 import './App.css';
 
 function App() {
-	const [repos, setRepos] = useState([]);
-
 	return (
 		<div className='App'>
-			<Home repos={repos} setRepos={setRepos} />
+			<h1>app</h1>
 		</div>
 	);
 }
