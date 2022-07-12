@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Home } from './pages';
+import { Home, RepoPage } from './pages';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './layout';
 
 import './App.css';
 
@@ -8,7 +10,12 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Home repos={repos} setRepos={setRepos} />
+      <Routes>
+        <Route path="/" element ={<Layout />}>
+			  <Route path="/" element={<Home repos={repos} setRepos={setRepos} />}/>
+        <Route path="/RepoPage/:id" element={<RepoPage repos={repos}/>}/>
+        </Route>
+      </Routes>
 		</div>
 	);
 }
