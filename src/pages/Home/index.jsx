@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Home() {
+
+function Home( {repos, setRepos}) {
+
+    const [ user, setUser ] = useState('');
+    const navigate = useNavigate();
+
 	async function getApi() {
+
 		try {
 			const result = await axios.get(
 				`https://api.github.com/users/${user}/repos`

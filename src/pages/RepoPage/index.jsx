@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 
 const RepoPage = ({ repos }) => {
-	const id = useParams(id);
-	const repo = repos.filter((e) => e.id == id);
+	const id = useParams();
+	const repo = repos.filter((e) => e.id === id);
 
 	return (
 		<>
