@@ -13,7 +13,7 @@ function Header() {
                 <ul>
                     <li><Link className="nav-title" to="/">Home</Link> </li>
                     <li><Link className="nav-title" to="/RepoPage/:id">RepoPage</Link></li>
-                    <li> Back </li>
+                    <li className="nav-title"> Back </li>
                 </ul>
            </nav> 
         </>
