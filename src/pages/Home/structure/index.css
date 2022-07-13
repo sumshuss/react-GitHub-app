@@ -1,0 +1,84 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: 'Poppins', sans-serif;
+    
+    --fw-reg: 400;
+    --fw-bold: 700;
+    
+    --clr-light: #F8F8FF;
+    --clr-dark: #303030;
+    --clr-accent: #61DAFB;
+    
+    --fs-h1: 2.5rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+/* General styles */
+
+html {
+    scroll-behavior: smooth;
+} 
+
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__title {
+    margin-bottom: .5em;
+} 
+
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+
+
+.middle {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+
+

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Section from './structure';
+import './index.css'
 
 function Home({ repos, setRepos }) {
 	const [user, setUser] = useState('');
@@ -18,25 +20,31 @@ function Home({ repos, setRepos }) {
 	}
 
 	return (
-		<>
-			<input onChange={(e) => setUser(e.target.value)} />
-			<button onClick={getApi}> fetch </button>
-			{repos.length > 1 && <h4>repos: {repos.length}</h4>}
+		
+			<div className='search'>
+			<Section />
 
+			<div className='input'>
+				<input onChange={(e) => setUser(e.target.value)} />
+				<button className="btn" onClick={getApi}> fetch </button>
+				{repos.length > 1 && <h4>repos: {repos.length}</h4>}
+			</div>
+			<ul>
 			{repos &&
 				repos.map((repo) => {
 					return (
 						<div key={repo.id}>
-							<h1
+							<li
 								onClick={() => navigate(`/repopage/${repo.id}`)}
 								key={repo.id}
 							>
 								{repo.name}
-							</h1>
+							</li>
 						</div>
 					);
-				})}
-		</>
+				})}			
+			</ul>
+		</div>
 	);
 }
 

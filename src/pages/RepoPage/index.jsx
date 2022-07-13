@@ -14,6 +14,7 @@ const RepoPage = ({ repos }) => {
 	};
 
 	useEffect(() => {
+
 		try {
 			getRepo(id);
 			setLoading(false);
