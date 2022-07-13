@@ -1,10 +1,17 @@
 import './index.css';
 import React from "react";
 import { Link } from 'react-router-dom';
-import logo from './git.png'
-
+import logo from './gith.png'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+    const homePage = 'http://localhost:3000/'
+    const url = window.location.href;
+    console.log(url)
+    const navigate = useNavigate();
+
+
+
     return(
         <>
            <nav>
@@ -13,7 +20,7 @@ function Header() {
                 <ul>
                     <li><Link className="nav-title" to="/">Home</Link> </li>
                     <li><Link className="nav-title" to="/RepoPage/:id">RepoPage</Link></li>
-                    <li className="nav-title"> Back </li>
+                    {url !== homePage && <li className="nav-title"> Back </li>}
                 </ul>
            </nav> 
         </>

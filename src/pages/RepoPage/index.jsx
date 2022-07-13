@@ -14,7 +14,7 @@ const RepoPage = ({ repos }) => {
 	};
 
 	useEffect(() => {
-		if (!repo) return navigate(-1);
+		// if (!repo) return navigate(-1);
 
 		try {
 			getRepo(id);
