@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import UserCard from '../../components/UserCard';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const RepoPage = ({ repos }) => {
 	const { id } = useParams();
 	const [repo, setRepo] = useState('');
 	const [loading, setLoading] = useState(true);
 	const [message, setMessage] = useState();
+	const navigate = useNavigate();
 
 	const getRepo = (repoId) => {
 		return setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
 	};
 
 	useEffect(() => {
+		if (!repo) return navigate(-1);
+
 		try {
 			getRepo(id);
 			setLoading(false);
