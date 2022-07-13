@@ -9,12 +9,11 @@ const RepoPage = ({ repos }) => {
 	const [message, setMessage] = useState();
 	const navigate = useNavigate();
 
-	const getRepo = (repoId) => {
+	const getRepo = async (repoId) => {
 		return setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
 	};
 
 	useEffect(() => {
-		// if (!repo) return navigate(-1);
 
 		try {
 			getRepo(id);
@@ -23,6 +22,7 @@ const RepoPage = ({ repos }) => {
 			console.log(err);
 			setMessage(err);
 		}
+		// if (!repo) return navigate(-1);
 	}, []);
 
 	return (
