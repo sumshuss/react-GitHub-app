@@ -1,24 +1,36 @@
-// import { useParams } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UserCard from '../../components/UserCard';
-const RepoPage = ({ repos }) => {
-	// const id = useParams(id || 1);
-	// const repo = repos && repos.filter((e) => e.id === id);
+import { useParams } from 'react-router-dom';
 
-	// to be deleted and replaced with above once routes are done
-	const repo = repos[0];
+const RepoPage = ({ repos }) => {
+	const { id } = useParams();
+	const [repo, setRepo] = useState('');
+	const [loading, setLoading] = useState(true);
+	const [message, setMessage] = useState();
+
+	const getRepo = (repoId) => {
+		return setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
+	};
+
+	useEffect(() => {
+		try {
+			getRepo(id);
+			setLoading(false);
+		} catch (err) {
+			console.log(err);
+			setMessage(err);
+		}
+	}, []);
 
 	return (
-		<>
-			<UserCard repo={repo} />
-			<h1>{repo.name}</h1>
-		</>
+		<div>
+			{message ? (
+				<h1>{message}</h1>
+			) : (
+				<>{loading ? <h2>loading...</h2> : <UserCard repo={repo} />}</>
+			)}
+		</div>
 	);
 };
 
 export default RepoPage;
-
-// {
-// 	/* <link to="/" element={<home />} />
-// <link to="/repopage/:id" element={<RepoPage repos={repos} />} /> */
-// }
