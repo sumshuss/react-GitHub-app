@@ -29,19 +29,19 @@ const UserCard = ({ repo }) => {
 			<div className='info-container'>
 				<section>
 					<p className='tag'>Repository:</p>
-					<p className='details'>{repo.name}</p>
+					<p className='details d-1'>{repo.name}</p>
 				</section>
 				{isPopulated(repo.description) && (
 					<section>
 						<p className='tag'>Description</p>
-						<p className='details'>{repo.description}</p>
+						<p className='details d-2'>{repo.description}</p>
 					</section>
 				)}
 
 				{isPopulated(repo.language) && (
 					<section>
 						<p className='tag'>Primary Language</p>
-						<p className='details'>{repo.language}</p>
+						<p className='details d-3'>{repo.language}</p>
 					</section>
 				)}
 			</div>
