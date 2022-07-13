@@ -10,6 +10,10 @@ function Header() {
     console.log(url)
     const navigate = useNavigate();
 
+    function goBack(){
+        navigate(-1)
+    }
+
 
 
     return(
@@ -20,7 +24,7 @@ function Header() {
                 <ul>
                     <li><Link className="nav-title" to="/">Home</Link> </li>
                     <li><Link className="nav-title" to="/RepoPage/:id">RepoPage</Link></li>
-                    {url !== homePage && <li className="nav-title"> Back </li>}
+                    {url !== homePage && <li className="nav-title" onClick={goBack}> Back </li>}
                 </ul>
            </nav> 
         </>
