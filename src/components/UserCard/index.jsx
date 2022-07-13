@@ -1,19 +1,14 @@
 import './main.css';
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 const UserCard = ({ repo }) => {
-	const navigate = useNavigate();
 	// get only the repo owners details from the repo
 	const user = repo.owner;
+	console.log(repo.description.length);
 
 	const isPopulated = (value) => {
 		if (value.length < 1) return false;
 		return value;
 	};
-
-	useEffect(() => {
-		if (!repo) return navigate(-1);
-	}, []);
 
 	return (
 		<main>
