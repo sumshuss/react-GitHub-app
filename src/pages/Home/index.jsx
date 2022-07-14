@@ -24,14 +24,14 @@ function Home({ repos, setRepos }) {
 			<Section />
 
 			<div className='input'>
-				<input role='search' onChange={(e) => setUser(e.target.value)} />
-				<button className='btn' onClick={getApi}>
-					{' '}
-					fetch{' '}
-				</button>
-				{repos.length > 1 && <h4>repos: {repos.length}</h4>}
+
+				<input onChange={(e) => setUser(e.target.value)} />
+				<button className="btn" onClick={getApi}> fetch </button>
+				{repos.length > 1 && <h4>Repos: {repos.length}</h4>}
 			</div>
-			<ul>
+
+			<div className='list'>
+				<ul>
 				{repos &&
 					repos.map((repo) => {
 						return (
@@ -44,8 +44,10 @@ function Home({ repos, setRepos }) {
 								</li>
 							</div>
 						);
-					})}
-			</ul>
+					})}			
+				</ul>
+			</div>
+
 		</div>
 	);
 }
