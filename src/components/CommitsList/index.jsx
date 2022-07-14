@@ -5,19 +5,18 @@ import axios from 'axios';
 const CommitsList = ({ repo }) => {
 	const [commits, setCommits] = useState([]);
 
-	const getCommits = async () => {
-		console.log(repo);
-
-		const result = await axios.get(
-			`https://api.github.com/repos/${repo.full_name}/commits`
-		);
-		setCommits(result.data);
-		console.log(result.data);
-	};
-
 	useEffect(() => {
+		const getCommits = async () => {
+			console.log(repo);
+
+			const result = await axios.get(
+				`https://api.github.com/repos/${repo.full_name}/commits`
+			);
+			setCommits(result.data);
+			console.log(result.data);
+		};
 		getCommits();
-	}, []);
+	}, [repo]);
 
 	return (
 		<div className='commits-container'>
