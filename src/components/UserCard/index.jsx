@@ -1,13 +1,19 @@
 import './main.css';
 import React from 'react';
+import CommitsList from '../CommitsList';
+
 const UserCard = ({ repo }) => {
 	// get only the repo owners details from the repo
 	const user = repo.owner;
-	console.log(repo.description.length);
 
 	const isPopulated = (value) => {
 		if (value.length < 1) return false;
 		return value;
+	};
+
+	const createdAt = () => {
+		const repoCreationDate = new Date(repo.created_at);
+		return `${repoCreationDate.getDate()}/${repoCreationDate.getMonth()}/${repoCreationDate.getFullYear()}`;
 	};
 
 	return (
@@ -44,7 +50,9 @@ const UserCard = ({ repo }) => {
 						<p className='details d-3'>{repo.language}</p>
 					</section>
 				)}
+				<h4>created: {createdAt()}</h4>
 			</div>
+			<CommitsList repo={repo} />
 		</main>
 	);
 };
