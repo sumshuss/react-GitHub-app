@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Section from './structure';
-import './index.css'
+import './index.css';
 
 function Home({ repos, setRepos }) {
 	const [user, setUser] = useState('');
@@ -20,11 +20,11 @@ function Home({ repos, setRepos }) {
 	}
 
 	return (
-		
-			<div className='search'>
+		<div className='search'>
 			<Section />
 
 			<div className='input'>
+
 				<input onChange={(e) => setUser(e.target.value)} />
 				<button className="btn" onClick={getApi}> fetch </button>
 				{repos.length > 1 && <h4>Repos: {repos.length}</h4>}
@@ -47,6 +47,7 @@ function Home({ repos, setRepos }) {
 					})}			
 				</ul>
 			</div>
+
 		</div>
 	);
 }

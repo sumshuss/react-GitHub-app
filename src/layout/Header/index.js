@@ -1,14 +1,15 @@
 import './index.css';
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './gith.png'
-import { useNavigate } from 'react-router-dom'
+import logo from './gith.png';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
-    const homePage = 'http://localhost:3000/'
-    const url = window.location.href;
-    console.log(url)
-    const navigate = useNavigate();
+	const homePage = 'http://localhost:3000/';
+	const url = window.location.href;
+	console.log(url);
+	const navigate = useNavigate();
+
 
     function goBack(){
         navigate(-1)
@@ -29,6 +30,7 @@ function Header() {
            </nav> 
         </>
     )
+
 }
 
 export default Header;
