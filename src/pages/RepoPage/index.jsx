@@ -8,19 +8,17 @@ const RepoPage = ({ repos }) => {
 	const [loading, setLoading] = useState(true);
 	// const navigate = useNavigate();
 
-	const getRepo = async (repoId) => {
-		return setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
-	};
-
 	// const redirectUser = () => {
 	// 	!repo && navigate(-1);
 	// };
 
 	useEffect(() => {
+		async function getRepo(repoId) {
+			setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
+			setLoading(false);
+		}
 		getRepo(id);
-		setLoading(false);
-		console.log(repo);
-	}, []);
+	}, [repos, id]);
 
 	return (
 		<div>
