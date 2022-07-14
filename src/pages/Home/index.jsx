@@ -27,23 +27,26 @@ function Home({ repos, setRepos }) {
 			<div className='input'>
 				<input onChange={(e) => setUser(e.target.value)} />
 				<button className="btn" onClick={getApi}> fetch </button>
-				{repos.length > 1 && <h4>repos: {repos.length}</h4>}
+				{repos.length > 1 && <h4>Repos: {repos.length}</h4>}
 			</div>
-			<ul>
-			{repos &&
-				repos.map((repo) => {
-					return (
-						<div key={repo.id}>
-							<li
-								onClick={() => navigate(`/repopage/${repo.id}`)}
-								key={repo.id}
-							>
-								{repo.name}
-							</li>
-						</div>
-					);
-				})}			
-			</ul>
+
+			<div className='list'>
+				<ul>
+				{repos &&
+					repos.map((repo) => {
+						return (
+							<div key={repo.id}>
+								<li
+									onClick={() => navigate(`/repopage/${repo.id}`)}
+									key={repo.id}
+								>
+									{repo.name}
+								</li>
+							</div>
+						);
+					})}			
+				</ul>
+			</div>
 		</div>
 	);
 }
