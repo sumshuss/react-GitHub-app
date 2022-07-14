@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 function Header() {
 	const homePage = 'http://localhost:3000/';
 	const url = window.location.href;
-
+	console.log(url);
 	const navigate = useNavigate();
 
-	const reverseHandler = () => {
+	function goBack() {
 		navigate(-1);
-	};
+	}
 
 	return (
 		<>
@@ -35,7 +35,7 @@ function Header() {
 						</Link>
 					</li>
 					{url !== homePage && (
-						<li onClick={reverseHandler} className='nav-title'>
+						<li className='nav-title' onClick={goBack}>
 							{' '}
 							Back{' '}
 						</li>

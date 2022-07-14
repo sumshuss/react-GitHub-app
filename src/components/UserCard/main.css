@@ -69,7 +69,12 @@ a:hover {
 .d-2 {
 	min-width: 600px;
 	border-right: solid rgba(137, 43, 226, 0.13) 2px;
+	overflow-y: scroll;
 }
+.d-2::-webkit-scrollbar {
+	display: none;
+}
+
 .d-3 {
 	min-width: 200px;
 	border-right: solid #3fcffb28 2px;

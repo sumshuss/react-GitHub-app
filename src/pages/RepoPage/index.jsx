@@ -6,29 +6,25 @@ const RepoPage = ({ repos }) => {
 	const { id } = useParams();
 	const [repo, setRepo] = useState('');
 	const [loading, setLoading] = useState(true);
-	const [message, setMessage] = useState();
+	// const navigate = useNavigate();
 
 	const getRepo = async (repoId) => {
 		return setRepo(repos.filter((e) => e.id.toString() === repoId)[0]);
 	};
 
+	// const redirectUser = () => {
+	// 	!repo && navigate(-1);
+	// };
+
 	useEffect(() => {
-		try {
-			getRepo(id);
-			return setLoading(false);
-		} catch (err) {
-			console.log(err);
-			setMessage(err);
-		}
+		getRepo(id);
+		setLoading(false);
+		console.log(repo);
 	}, []);
 
 	return (
 		<div>
-			{message ? (
-				<h1>{message}</h1>
-			) : (
-				<>{loading ? <h2>loading...</h2> : <UserCard repo={repo} />}</>
-			)}
+			<>{loading ? <h2>loading...</h2> : <UserCard repo={repo} />}</>
 		</div>
 	);
 };
